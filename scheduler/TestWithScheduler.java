@@ -1,4 +1,4 @@
-package ler.mocks.scheduler
+package ler.mocks.scheduler;
 
 import edu.wpi.first.wpilibj2.command.CommandScheduler;;
 
