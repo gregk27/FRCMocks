@@ -1,7 +1,9 @@
 # FRCMocks
 This is a repository containing classes that can be used to mock behaviour of various FRC components.
 
-# Implementation
+Additionally, classes are included that allow for manually pumping the scheduler when testing. These are derived from [https://github.com/robototes/2020_Template].
+
+# Usage
 To use the submodule with your project, run the command `git submodule add https://github.com/Aree-Vanier/FRCMocks.git src/test/java/ler/mocks` from the project root.
 
 # Features
