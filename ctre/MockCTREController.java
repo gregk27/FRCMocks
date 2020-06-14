@@ -8,8 +8,6 @@ import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-import edu.wpi.first.hal.sim.DIOSim;
-
 /**
  * Wrapper used to mock CTRE motor controllers and track changes
  * 
@@ -108,13 +106,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble()); 
+        }).when(mc).config_kI(anyInt(), anyDouble()); 
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble(), anyInt()); 
+        }).when(mc).config_kI(anyInt(), anyDouble(), anyInt()); 
 
         //Update when kD set
         doAnswer(invocation -> {
@@ -122,13 +120,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble()); 
+        }).when(mc).config_kD(anyInt(), anyDouble()); 
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble(), anyInt()); 
+        }).when(mc).config_kD(anyInt(), anyDouble(), anyInt()); 
     
         //Update when kF set
         doAnswer(invocation -> {
@@ -136,13 +134,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble()); 
+        }).when(mc).config_kF(anyInt(), anyDouble()); 
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble(), anyInt()); 
+        }).when(mc).config_kF(anyInt(), anyDouble(), anyInt()); 
     }
 
     /**
