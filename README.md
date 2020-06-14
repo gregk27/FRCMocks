@@ -39,7 +39,7 @@ Both are mocked through the MockCTREController class
  - BaseMotorController.config_kF(int, double, int?) -> void
 #### Tracks
  - ControlMode (PercentOutput, PositionControl, ...)
- - setPoint (last value passed to set)
+ - setPoint (last value passed to `set()`)
  - velocity (set by `set(ControlMode.Velocity)` or test code)
  - position (set by `set(ControlMode.Position)` or test code)
  - PIDF constants
