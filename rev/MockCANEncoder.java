@@ -19,29 +19,42 @@ public class MockCANEncoder {
     private CANEncoder mock;
     MockCANSparkMax spark;
 
-    /** 
-     * The encoder velocity. 
-     * <p>Set with {@link CANPIDController#setReference(double, com.revrobotics.ControlType)} using {@link ControlType#kVelocity}/{@link ControlType#kSmartVelocity} or specified by test code 
+    /**
+     * The encoder velocity.
+     * <p>
+     * Set with
+     * {@link CANPIDController#setReference(double, com.revrobotics.ControlType)}
+     * using {@link ControlType#kVelocity}/{@link ControlType#kSmartVelocity} or
+     * specified by test code
      */
     public double velocity;
-    /**The encoder velocity conversion factor.
-     * <p>Set with {@link CANPIDController#setVelocityConversionFactor(double)} or specified by test code 
+    /**
+     * The encoder velocity conversion factor.
+     * <p>
+     * Set with {@link CANPIDController#setVelocityConversionFactor(double)} or
+     * specified by test code
      */
     public double velocityConversionFactor;
 
     /**
-     * The encoder position. 
-     * <p>Set with {@link CANPIDController#setReference(double, com.revrobotics.ControlType)} using {@link ControlType#kPosition}/{@link ControlType#kSmartMotion} or specified by test code
+     * The encoder position.
+     * <p>
+     * Set with
+     * {@link CANPIDController#setReference(double, com.revrobotics.ControlType)}
+     * using {@link ControlType#kPosition}/{@link ControlType#kSmartMotion} or
+     * specified by test code
      */
     public double position;
-    /**The encoder position conversion factor.
-     * <p>Set with {@link CANPIDController#setVelocityConversionFactor(double)} or specified by test code
+    /**
+     * The encoder position conversion factor.
+     * <p>
+     * Set with {@link CANPIDController#setVelocityConversionFactor(double)} or
+     * specified by test code
      */
     public double positionConversionFactor;
-
     
     /**
-     * Create a wrapper for a mock {@link CANEncoder}
+     * Create a wrapper for a mock {@link CANEncoder}.
      * 
      * @param spark The parent {@MockCANSparkMax} controller
      */
@@ -75,7 +88,7 @@ public class MockCANEncoder {
     }
 
     /**
-     * Get the mocked {@link CANEncoder} to be passed to the subsystem
+     * Get the mocked {@link CANEncoder} to be passed to the subsystem.
      * 
      * @return The mock object
      */

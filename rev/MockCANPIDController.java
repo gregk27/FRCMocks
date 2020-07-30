@@ -18,32 +18,32 @@ import org.mockito.Mockito;
 public class MockCANPIDController {
 
     private CANPIDController mock;
-    /** Parent {@link MockCANSparkMax} controller */
+    /** Parent {@link MockCANSparkMax} controller. */
     MockCANSparkMax spark;
 
     /**
-     * P constant, either set with {@link CANPIDController#setP(double,int)} or specified by test code
+     * P constant, either set with {@link CANPIDController#setP(double,int)} or specified by test code.
      * <p> Note: This has no impact on the mock controller's behaviour, and is merely for confirming changes
      */
     public double kP;
     /**
-     * I constant, either set with {@link CANPIDController#setI(double,int)} or specified by test code
+     * I constant, either set with {@link CANPIDController#setI(double,int)} or specified by test code.
      * <p> Note: This has no impact on the mock controller's behaviour, and is merely for confirming changes
      */
     public double kI;
     /**
-     * D constant, either set with {@link CANPIDController#setD(double,int)} or specified by test code
+     * D constant, either set with {@link CANPIDController#setD(double,int)} or specified by test code.
      * <p> Note: This has no impact on the mock controller's behaviour, and is merely for confirming changes
      */
     public double kD;
     /**
-     * F constant, either set with {@link CANPIDController#setFF(double,int)} or specified by test code
+     * F constant, either set with {@link CANPIDController#setFF(double,int)} or specified by test code.
      * <p> Note: This has no impact on the mock controller's behaviour, and is merely for confirming changes
      */
     public double kF;
 
     /**
-     * Create a wrapper for a mock {@link CANPIDController}
+     * Create a wrapper for a mock {@link CANPIDController}.
      * 
      * @param spark The parent {@MockCANSparkMax} controller
      */
@@ -98,7 +98,7 @@ public class MockCANPIDController {
             spark.controlType = (ControlType) args[1];
             if(spark.controlType == ControlType.kPosition || spark.controlType == ControlType.kSmartMotion){
                 spark.encoder.position = spark.setpoint;
-            } else if (spark.controlType == ControlType.kVelocity || spark.controlType == ControlType.kSmartVelocity){
+            } else if(spark.controlType == ControlType.kVelocity || spark.controlType == ControlType.kSmartVelocity){
                 spark.encoder.velocity = spark.setpoint;
             }
             spark.pidMode = true;
@@ -107,7 +107,7 @@ public class MockCANPIDController {
     }
 
     /**
-     * Get the mocked {@link CANPIDController} to be passed to the subsystem
+     * Get the mocked {@link CANPIDController} to be passed to the subsystem.
      * 
      * @return The mock object
      */

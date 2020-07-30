@@ -10,7 +10,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
 /**
- * Wrapper used to mock {@link CANSparkMax}s and track changes
+ * Wrapper used to mock {@link CANSparkMax}s and track changes.
  */
 public class MockCANSparkMax {
 
@@ -18,15 +18,26 @@ public class MockCANSparkMax {
     public MockCANEncoder encoder;
     public MockCANPIDController pidController;
 
-    /** Flag indicating whether the last instruction was sent using {@link CANPIDController#setReference(double, ControlType)} or {@link CANSparkMax#set(double)} */
+    /**
+     * Flag indicating whether the last instruction was sent using
+     * {@link CANPIDController#setReference(double, ControlType)} or
+     * {@link CANSparkMax#set(double)}.
+     */
     public boolean pidMode = false;
-    /** Last {@link ControlType} sent to {@link #pidController}. This is the active control mode if {@link #pidMode} is <code>true</code>.*/
+    /**
+     * Last {@link ControlType} sent to {@link #pidController}. This is the active
+     * control mode if {@link #pidMode} is <code>true</code>.
+     */
     public ControlType controlType;
-    /** Currently active setpoint, set by {@link CANPIDController#setReference(double, ControlType)} or {@link CANSparkMax#set(double)}.*/
+    /**
+     * Currently active setpoint, set by
+     * {@link CANPIDController#setReference(double, ControlType)} or
+     * {@link CANSparkMax#set(double)}.
+     */
     public double setpoint;
 
-   /**
-     * Create a wrapper for a mock {@link CANSparkMax}
+    /**
+     * Create a wrapper for a mock {@link CANSparkMax}.
      */
     public MockCANSparkMax(){
         mock = mock(CANSparkMax.class);
@@ -45,7 +56,7 @@ public class MockCANSparkMax {
     }
 
     /**
-     * Get the mocked {@link CANSparkMax} to be passed to the subsystem
+     * Get the mocked {@link CANSparkMax} to be passed to the subsystem.
      * 
      * @return The mock object
      */

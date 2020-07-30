@@ -35,7 +35,7 @@ public final class SchedulerPumpHelper {
 	 * @return The heartbeat to use
 	 */
 	private static int getHeartbeatToUse(int[] optionalHeartbeatInMs) {
-		if (optionalHeartbeatInMs.length > 1) {
+		if(optionalHeartbeatInMs.length > 1){
 			throw new IllegalArgumentException("There can be only one optional heartbeat parameter.");
 		}
 		return optionalHeartbeatInMs.length > 0 ? optionalHeartbeatInMs[0] : defaultHeartbeatInMs;
@@ -57,7 +57,7 @@ public final class SchedulerPumpHelper {
 			throws InterruptedException {
 		int heartbeatToUseInMs = getHeartbeatToUse(optionalHeartbeatInMs);
 		long start = System.nanoTime();
-		while (System.nanoTime() < (start + TimeUnit.MILLISECONDS.toNanos(durationInMs))) {
+		while(System.nanoTime() < (start + TimeUnit.MILLISECONDS.toNanos(durationInMs))){
 			CommandScheduler.getInstance().run();
 			Thread.sleep(heartbeatToUseInMs);
 		}

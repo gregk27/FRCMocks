@@ -7,15 +7,15 @@ import static org.mockito.Mockito.mock;
 import edu.wpi.first.wpilibj.DigitalOutput;
 
 /**
- * Wrapper used to mock {@link DigitalOutput}s and track changes
+ * Wrapper used to mock {@link DigitalOutput}s and track changes.
  */
 public class MockDigitalOutput {
     
     DigitalOutput mdo;
     public boolean state;
 
-   /**
-     * Create a wrapper for a mock {@link DigitalOutput}
+    /**
+     * Create a wrapper for a mock {@link DigitalOutput}.
      */
     public MockDigitalOutput(){
         mdo = mock(DigitalOutput.class);       
@@ -33,7 +33,7 @@ public class MockDigitalOutput {
     }
 
     /**
-     * Get the mocked {@link DigitalOutput} to be passed to the subsystem
+     * Get the mocked {@link DigitalOutput} to be passed to the subsystem.
      * 
      * @return The mock object
      */

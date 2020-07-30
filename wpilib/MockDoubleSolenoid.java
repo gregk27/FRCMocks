@@ -8,23 +8,25 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
- * Wrapper used to mock {@link DoubleSolenoid}s and track changes
+ * Wrapper used to mock {@link DoubleSolenoid}s and track changes.
  */
 public class MockDoubleSolenoid {
 
     DoubleSolenoid ds;
+
     /**
-     * The solenoid's state, as set by {@link DoubleSolenoid#set(Value)}
+     * The solenoid's state, as set by {@link DoubleSolenoid#set(Value)}.
      * <p> Can be:
      * <ul>
      * <li> {@link Value#kOff}
      * <li> {@link Value#kForward}
      * <li> {@link Value#kReverse}
+     * </ul>
      */
     public Value state = Value.kOff;
 
     /**
-     * Create a wrapper for a mock {@link DoubleSolenoid}
+     * Create a wrapper for a mock {@link DoubleSolenoid}.
      */
     public MockDoubleSolenoid(){
        ds = Mockito.mock(DoubleSolenoid.class);
@@ -43,7 +45,7 @@ public class MockDoubleSolenoid {
     }
 
     /**
-     * Get the mocked {@link DoubleSolenoid} to be passed to the subsystem
+     * Get the mocked {@link DoubleSolenoid} to be passed to the subsystem.
      * 
      * @return The mock object
      */
