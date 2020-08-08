@@ -1,4 +1,4 @@
-package ler.mocks.wpilib;
+package FRCMocks.wpilib;
 
 import static org.mockito.Mockito.doAnswer;
 

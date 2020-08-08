@@ -6,15 +6,23 @@
  * User Manual available at https://docs.gradle.org/6.3/userguide/java_library_plugin.html
  */
 
+buildscript{
+    version = '0.1.0'
+}
+
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id "edu.wpi.first.GradleRIO" version "2020.3.2"
 }
 
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven { url "http://devsite.ctr-electronics.com/maven/release/" }
+    maven { url "http://www.revrobotics.com/content/sw/max/sdk/maven/" }
+    maven { url "https://frcmaven.wpi.edu/artifactory/development/" }
 }
 
 dependencies {
@@ -23,6 +31,22 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
+    implementation 'org.mockito:mockito-core:2.+'
+    
+    implementation wpi.deps.wpilib()
+    nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.wpilibJni(wpi.platforms.desktop)
+
+
+    implementation wpi.deps.vendor.java()
+    nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+
+    implementation 'edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:+'
+    
+    implementation 'com.ctre.phoenix:api-java:+'
+    implementation 'com.ctre.phoenix:wpiapi-java:+'
+    implementation 'com.revrobotics.frc:SparkMax-java:+'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

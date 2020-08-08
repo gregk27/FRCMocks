@@ -1,4 +1,4 @@
-package ler.mocks.ctre;
+package FRCMocks.ctre;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;

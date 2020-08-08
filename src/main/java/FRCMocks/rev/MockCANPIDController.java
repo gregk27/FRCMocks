@@ -1,4 +1,4 @@
-package ler.mocks.rev;
+package FRCMocks.rev;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;

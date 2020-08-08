@@ -1,4 +1,4 @@
-package ler.mocks.scheduler;
+package FRCMocks.scheduler;
 
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.hal.sim.DriverStationSim;
