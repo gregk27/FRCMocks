@@ -43,11 +43,18 @@ dependencies {
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 
     implementation 'edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:+'
-    
+
     implementation 'com.ctre.phoenix:api-java:+'
     implementation 'com.ctre.phoenix:wpiapi-java:+'
     implementation 'com.revrobotics.frc:SparkMax-java:+'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
 }
