@@ -6,10 +6,6 @@
  * User Manual available at https://docs.gradle.org/6.3/userguide/java_library_plugin.html
  */
 
-buildscript{
-    version = '0.1.0'
-}
-
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
