@@ -45,7 +45,7 @@ public class MockCANPIDController {
     /**
      * Create a wrapper for a mock {@link CANPIDController}.
      * 
-     * @param spark The parent {@MockCANSparkMax} controller
+     * @param spark The parent {@link MockCANSparkMax} controller
      */
     public MockCANPIDController(MockCANSparkMax spark) {
         this.spark = spark;

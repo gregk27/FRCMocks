@@ -49,7 +49,7 @@ public class MockCTREController<T extends BaseMotorController> {
     public double position;
 
     /**
-     * P constant, either set with {@link BaseController#config_kP(int,double,int)}
+     * P constant, either set with {@link BaseMotorController#config_kP(int, double, int)}
      * or specified manually.
      * <p>
      * Note: This has no impact on the mock controller's behaviour, and is merely
@@ -57,7 +57,7 @@ public class MockCTREController<T extends BaseMotorController> {
      */
     public double kP = 0;
     /**
-     * I constant, either set with {@link BaseController#config_kI(int,double,int)}
+     * I constant, either set with {@link BaseMotorController#config_kI(int,double,int)}
      * or specified manually.
      * <p>
      * Note: This has no impact on the mock controller's behaviour, and is merely
@@ -65,7 +65,7 @@ public class MockCTREController<T extends BaseMotorController> {
      */
     public double kI = 0;
     /**
-     * D constant, either set with {@link BaseController#config_kD(int,double,int)}
+     * D constant, either set with {@link BaseMotorController#config_kD(int,double,int)}
      * or specified manually.
      * <p>
      * Note: This has no impact on the mock controller's behaviour, and is merely
@@ -73,7 +73,7 @@ public class MockCTREController<T extends BaseMotorController> {
      */
     public double kD = 0;
     /**
-     * F constant, either set with {@link BaseController#config_kF(int,double,int)}
+     * F constant, either set with {@link BaseMotorController#config_kF(int,double,int)}
      * or specified manually.
      * <p>
      * Note: This has no impact on the mock controller's behaviour, and is merely

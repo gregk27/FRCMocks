@@ -31,7 +31,7 @@ public class MockCANEncoder {
     /**
      * The encoder velocity conversion factor.
      * <p>
-     * Set with {@link CANPIDController#setVelocityConversionFactor(double)} or
+     * Set with {@link CANEncoder#setVelocityConversionFactor(double)} or
      * specified by test code
      */
     public double velocityConversionFactor;
@@ -48,7 +48,7 @@ public class MockCANEncoder {
     /**
      * The encoder position conversion factor.
      * <p>
-     * Set with {@link CANPIDController#setVelocityConversionFactor(double)} or
+     * Set with {@link CANEncoder#setPositionConversionFactor(double)} or
      * specified by test code
      */
     public double positionConversionFactor;
@@ -56,7 +56,7 @@ public class MockCANEncoder {
     /**
      * Create a wrapper for a mock {@link CANEncoder}.
      * 
-     * @param spark The parent {@MockCANSparkMax} controller
+     * @param spark The parent {@link MockCANSparkMax} controller
      */
     public MockCANEncoder(MockCANSparkMax spark) {
         this.spark = spark;
