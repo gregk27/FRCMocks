@@ -13,6 +13,7 @@ buildscript{
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven-publish'
     id "edu.wpi.first.GradleRIO" version "2020.3.2"
 }
 
@@ -31,7 +32,7 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
-    implementation 'org.mockito:mockito-core:2.+'
+    implementation 'org.mockito:mockito-core:2.28.2'
     
     implementation wpi.deps.wpilib()
     nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
@@ -42,14 +43,33 @@ dependencies {
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 
-    implementation 'edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:+'
+    implementation 'edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.3.2'
 
-    implementation 'com.ctre.phoenix:api-java:+'
-    implementation 'com.ctre.phoenix:wpiapi-java:+'
-    implementation 'com.revrobotics.frc:SparkMax-java:+'
+    implementation 'com.ctre.phoenix:api-java:5.17.6'
+    implementation 'com.ctre.phoenix:wpiapi-java:5.17.6'
+    implementation 'com.revrobotics.frc:SparkMax-java:1.5.1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+publishing {
+    group = 'ca.gregk'
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/gregk27/FRCMocks")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
 
 java {
