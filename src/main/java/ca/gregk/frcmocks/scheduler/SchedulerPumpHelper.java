@@ -1,4 +1,4 @@
-package FRCMocks.scheduler;
+package ca.gregk.frcmocks.scheduler;
 
 import java.util.concurrent.TimeUnit;
 

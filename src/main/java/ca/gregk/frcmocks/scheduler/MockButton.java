@@ -1,4 +1,4 @@
-package FRCMocks.scheduler;
+package ca.gregk.frcmocks.scheduler;
 
 import edu.wpi.first.wpilibj2.command.button.Button;
 
