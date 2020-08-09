@@ -1,4 +1,4 @@
-package FRCMocks.rev;
+package ca.gregk.frcmocks.rev;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;

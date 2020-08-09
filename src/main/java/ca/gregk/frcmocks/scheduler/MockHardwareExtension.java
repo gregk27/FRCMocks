@@ -1,4 +1,4 @@
-package FRCMocks.scheduler;
+package ca.gregk.frcmocks.scheduler;
 
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.hal.sim.DriverStationSim;
