@@ -92,7 +92,7 @@ jobs:
       run: gradle publishToMavenLocal -Pversion=${{ env.RELEASE_VERSION }}
 
     - name: Move into repository
-      run: cp ~/.m2 .
+      run: cp ~/.m2 . -r
     - name: ls
       run: ls
 
