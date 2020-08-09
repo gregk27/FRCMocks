@@ -97,4 +97,3 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: maven # The branch the action should deploy to.
         FOLDER: .m2/repository # The folder the action should deploy.
-        WORKSPACE: ~
