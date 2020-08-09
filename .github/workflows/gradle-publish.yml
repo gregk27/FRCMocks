@@ -60,7 +60,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.get_release.outputs.upload_url }} # This pulls from the GET RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./build/libs/FRCMocks-${{ env.RELEASE_VERSION }}-source.jar
+        asset_path: ./build/libs/FRCMocks-${{ env.RELEASE_VERSION }}-sources.jar
         asset_name: FRCMocks-${{ env.RELEASE_VERSION }}-source.jar
         asset_content_type: application/java-archive
 
