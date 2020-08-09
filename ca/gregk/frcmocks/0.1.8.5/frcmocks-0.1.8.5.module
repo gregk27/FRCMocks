@@ -1,0 +1,238 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ca.gregk",
+    "module": "frcmocks",
+    "version": "0.1.8.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5.1",
+      "buildId": "5sgl6vdvmne5ng2lb2banvqdhm"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "frcmocks-0.1.8.5.jar",
+          "url": "frcmocks-0.1.8.5.jar",
+          "size": 14840,
+          "sha512": "b70a79734b3b8643bdcc7c8f477570dac6521fdde436f084f5e1be98bcb4fe0d73fb4cf163c53deeb524adc02c1b345b60c212bd93ff4f01aece783f097c6121",
+          "sha256": "118a8b95c5d21de8980b8a6f397e6b126124f16fa9b7fb15e5e8ee7c7d143e8d",
+          "sha1": "4c8ba575effb193603eb4e0cd61bcc793d54682c",
+          "md5": "f791edabd152c5a17171a57e1cda8b51"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "28.2-jre"
+          }
+        },
+        {
+          "group": "org.mockito",
+          "module": "mockito-core",
+          "version": {
+            "requires": "2.28.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpilibj",
+          "module": "wpilibj-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.ntcore",
+          "module": "ntcore-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpiutil",
+          "module": "wpiutil-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.thirdparty.frc2020.opencv",
+          "module": "opencv-java",
+          "version": {
+            "requires": "3.4.7-2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cscore",
+          "module": "cscore-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cameraserver",
+          "module": "cameraserver-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.hal",
+          "module": "hal-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "org.ejml",
+          "module": "ejml-simple",
+          "version": {
+            "requires": "0.38"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-annotations",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-core",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpilibNewCommands",
+          "module": "wpilibNewCommands-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "com.ctre.phoenix",
+          "module": "api-java",
+          "version": {
+            "requires": "5.17.6"
+          }
+        },
+        {
+          "group": "com.ctre.phoenix",
+          "module": "wpiapi-java",
+          "version": {
+            "requires": "5.17.6"
+          }
+        },
+        {
+          "group": "com.revrobotics.frc",
+          "module": "SparkMax-java",
+          "version": {
+            "requires": "1.5.1"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "frcmocks-0.1.8.5.jar",
+          "url": "frcmocks-0.1.8.5.jar",
+          "size": 14840,
+          "sha512": "b70a79734b3b8643bdcc7c8f477570dac6521fdde436f084f5e1be98bcb4fe0d73fb4cf163c53deeb524adc02c1b345b60c212bd93ff4f01aece783f097c6121",
+          "sha256": "118a8b95c5d21de8980b8a6f397e6b126124f16fa9b7fb15e5e8ee7c7d143e8d",
+          "sha1": "4c8ba575effb193603eb4e0cd61bcc793d54682c",
+          "md5": "f791edabd152c5a17171a57e1cda8b51"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "frcmocks-0.1.8.5-javadoc.jar",
+          "url": "frcmocks-0.1.8.5-javadoc.jar",
+          "size": 440644,
+          "sha512": "9d0b494d983b22faaf19da51a5d5e459e9c093eb7092da27fd1cb84d778df8e8f0693801eb2022e3f9031e647822f99d8542b8052c723314dc6828856d3236e8",
+          "sha256": "2f8206bd3c6223d66bc80f7be358a49cd3225eee413ef2b4b18268f56b5baaeb",
+          "sha1": "e76df2919fca1c2894525cb225a4fd92391be3a5",
+          "md5": "880955706afb995d3e4769d308ebfc35"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "frcmocks-0.1.8.5-sources.jar",
+          "url": "frcmocks-0.1.8.5-sources.jar",
+          "size": 10254,
+          "sha512": "75c5fe2bbc2de48eecd1da7b87557d5f064b9a366480a327a203fd06e5ea63e55cc40e11619bad8bce05a64411e021297abffb0b742c8f135709303fb80418f4",
+          "sha256": "7cd38f58964d639d95ae18fcd77e8dd7cc81c544e198ca63ae16509665c83f0c",
+          "sha1": "1564f5fab5e6743de3a6b62135aabbeeeb86e972",
+          "md5": "b1200402e55f97b3fd45e95f48beaad6"
+        }
+      ]
+    }
+  ]
+}
