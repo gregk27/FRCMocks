@@ -93,8 +93,9 @@ jobs:
 
     - name: Move into repository
       run: cp ~/.m2 . -r
-    - name: ls
-      run: ls
+
+    - name: Rename metadata-local to metadata
+      run: mv .m2/repository/ca/gregk/frcmocks/maven-metadata-local.xml .m2/repository/ca/gregk/frcmocks/maven-metadata.xml
 
     - name: Publish to pages
       uses: JamesIves/github-pages-deploy-action@3.5.9
