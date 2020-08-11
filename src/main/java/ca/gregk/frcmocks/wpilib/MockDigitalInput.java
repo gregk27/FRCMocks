@@ -1,41 +1,36 @@
 package ca.gregk.frcmocks.wpilib;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import ca.gregk.frcmocks.MockBase;
 import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * Wrapper used to mock {@link DigitalInput}s and track changes.
  */
-public class MockDigitalInput {
+public class MockDigitalInput extends MockBase<DigitalInput>{
     
-    DigitalInput mdi;
-    public boolean state;
+    /**
+     * The `true/false` state of the input
+     * <p> This value defaults to false, but should be set for reliability
+     */
+    public boolean state = false;
 
     /**
      * Create a wrapper for a mock {@link DigitalInput}.
      * 
-     * @param state Set the inital state
-     */
-    public MockDigitalInput(boolean state){
-        mdi = mock(DigitalInput.class);
-        when(mdi.get()).thenReturn(this.state);
-    }
-    
-    /**
-     * Create a wrapper for a mock {@link DigitalInput} with a <code>false</code> {@link #state}.
      */
     public MockDigitalInput(){
-        this(false);
+        super();
+    }
+    
+    @Override
+    protected void mapWrapper() {
+        when(mock.get()).thenReturn(this.state);
     }
 
-    /**
-     * Get the mocked {@link DigitalInput} to be passed to the subsystem.
-     * 
-     * @return The mock object
-     */
-    public DigitalInput getMock(){
-        return mdi;
+    @Override
+    public Class<DigitalInput> getType() {
+        return DigitalInput.class;
     }
 }

@@ -8,15 +8,14 @@ import com.revrobotics.CANError;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.ControlType;
 
-import org.mockito.Mockito;
+import ca.gregk.frcmocks.MockBase;
 
 /**
  * Wrapper used to mock {@link CANEncoder}s and track changes
  * <p> Used by {@link MockCANSparkMax}.
  */
-public class MockCANEncoder {
+public class MockCANEncoder extends MockBase<CANEncoder> {
 
-    private CANEncoder mock;
     MockCANSparkMax spark;
 
     /**
@@ -59,9 +58,12 @@ public class MockCANEncoder {
      * @param spark The parent {@link MockCANSparkMax} controller
      */
     public MockCANEncoder(MockCANSparkMax spark) {
+        super();
         this.spark = spark;
-        mock = Mockito.mock(CANEncoder.class);
+    }
 
+    @Override
+    protected void mapWrapper() {
         // Handle velocity functions
         doAnswer(invocation -> {
             return velocity;
@@ -87,13 +89,9 @@ public class MockCANEncoder {
         }).when(mock).getPositionConversionFactor();
     }
 
-    /**
-     * Get the mocked {@link CANEncoder} to be passed to the subsystem.
-     * 
-     * @return The mock object
-     */
-    public CANEncoder getMock(){
-        return mock;
+    @Override
+    public Class<CANEncoder> getType() {
+        return CANEncoder.class;
     }
 
 }

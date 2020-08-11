@@ -2,17 +2,18 @@ package ca.gregk.frcmocks.rev;
 
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
+import ca.gregk.frcmocks.MockBase;
+
 /**
  * Wrapper used to mock {@link CANSparkMax}s and track changes.
  */
-public class MockCANSparkMax {
+public class MockCANSparkMax extends MockBase<CANSparkMax>{
 
     private CANSparkMax mock;
     public MockCANEncoder encoder;
@@ -40,10 +41,22 @@ public class MockCANSparkMax {
      * Create a wrapper for a mock {@link CANSparkMax}.
      */
     public MockCANSparkMax(){
-        mock = mock(CANSparkMax.class);
+        super();
         encoder = new MockCANEncoder(this);
         pidController = new MockCANPIDController(this);
+    }
 
+    /**
+     * Get the mocked {@link CANSparkMax} to be passed to the subsystem.
+     * 
+     * @return The mock object
+     */
+    public CANSparkMax getMock(){
+        return mock;
+    }
+
+    @Override
+    protected void mapWrapper() {        
         //Pass the components on request
         when(mock.getEncoder()).thenReturn(encoder.getMock());
         when(mock.getPIDController()).thenReturn(pidController.getMock());
@@ -55,13 +68,9 @@ public class MockCANSparkMax {
         }).when(mock).set(anyDouble());
     }
 
-    /**
-     * Get the mocked {@link CANSparkMax} to be passed to the subsystem.
-     * 
-     * @return The mock object
-     */
-    public CANSparkMax getMock(){
-        return mock;
+    @Override
+    public Class<CANSparkMax> getType() {
+        return CANSparkMax.class;
     }
 
 }

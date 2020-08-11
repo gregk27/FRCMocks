@@ -8,16 +8,17 @@ import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import ca.gregk.frcmocks.MockBase;
+
 /**
  * Wrapper used to mock CTRE motor controllers and track changes.
  * 
  * @param <T> The motor controller type, either {@link TalonSRX} or
  *            {@link VictorSPX}
  */
-public class MockCTREController<T extends BaseMotorController> {
+public class MockCTREController<T extends BaseMotorController> extends MockBase<T> {
 
-    T mc;
-    Class<T> type;
+    Class<T> controllerClass;
 
     /** Index of the P argument in a PIDF array. */
     private static final int P_INDEX = 0;
@@ -88,36 +89,40 @@ public class MockCTREController<T extends BaseMotorController> {
      *                <code>.class</code>, corresponding with the controller type
      */
     public MockCTREController(Class<T> mcClass) {
-        mc = mock(mcClass);
-        type = mcClass;
+        controllerClass = mcClass;
+        initMock();
+    }
+    
+    @Override
+    protected void mapWrapper() {
         // Update when control set
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             setpoint = (double) args[1];
-            if(controlMode == ControlMode.Position){
+            if (controlMode == ControlMode.Position) {
                 position = setpoint;
-            } else if(controlMode == ControlMode.Velocity){
+            } else if (controlMode == ControlMode.Velocity) {
                 velocity = setpoint;
             }
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).set(any(ControlMode.class), anyDouble());
+        }).when(mock).set(any(ControlMode.class), anyDouble());
 
         // Send position on request
         doAnswer(invocation -> {
             return position;
-        }).when(mc).getSelectedSensorPosition();
+        }).when(mock).getSelectedSensorPosition();
         doAnswer(invocation -> {
             return position;
-        }).when(mc).getSelectedSensorPosition(anyInt());
+        }).when(mock).getSelectedSensorPosition(anyInt());
 
         // Send velocity on request
         doAnswer(invocation -> {
             return velocity;
-        }).when(mc).getSelectedSensorVelocity();
+        }).when(mock).getSelectedSensorVelocity();
         doAnswer(invocation -> {
             return velocity;
-        }).when(mc).getSelectedSensorVelocity(anyInt());
+        }).when(mock).getSelectedSensorVelocity(anyInt());
 
         // Update when kP set
         doAnswer(invocation -> {
@@ -125,13 +130,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kP = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble());
+        }).when(mock).config_kP(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kP = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kP(anyInt(), anyDouble(), anyInt());
+        }).when(mock).config_kP(anyInt(), anyDouble(), anyInt());
 
         // Update when kI set
         doAnswer(invocation -> {
@@ -139,13 +144,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kI(anyInt(), anyDouble());
+        }).when(mock).config_kI(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kI(anyInt(), anyDouble(), anyInt());
+        }).when(mock).config_kI(anyInt(), anyDouble(), anyInt());
 
         // Update when kD set
         doAnswer(invocation -> {
@@ -153,13 +158,13 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kD(anyInt(), anyDouble());
+        }).when(mock).config_kD(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kD(anyInt(), anyDouble(), anyInt());
+        }).when(mock).config_kD(anyInt(), anyDouble(), anyInt());
 
         // Update when kF set
         doAnswer(invocation -> {
@@ -167,35 +172,18 @@ public class MockCTREController<T extends BaseMotorController> {
             controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kF(anyInt(), anyDouble());
+        }).when(mock).config_kF(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
-        }).when(mc).config_kF(anyInt(), anyDouble(), anyInt());
+        }).when(mock).config_kF(anyInt(), anyDouble(), anyInt());
     }
 
-    /**
-     * Get the mock object to be passed to the subsystem
-     * <p>
-     * Note: The returned object must be cast to either {@link TalonSRX} or
-     * {@link VictorSPX}.
-     * 
-     * @return The mock object
-     */
-    public T getMock() {
-        return mc;
-    }
-
-    /**
-     * Get the controller type, as specified in the.
-     * {@link #MockCTREController(Class) constructor}
-     * 
-     * @return Either {@link TalonSRX} or {@link VictorSPX} <code>.class</code>
-     */
-    public Class<T> controllerType() {
-        return type;
+    @Override
+    public Class<T> getType(){
+        return controllerClass;
     }
 
     /**
