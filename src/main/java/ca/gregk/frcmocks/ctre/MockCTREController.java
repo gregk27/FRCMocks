@@ -16,7 +16,7 @@ import ca.gregk.frcmocks.MockBase;
  * @param <T> The motor controller type, either {@link TalonSRX} or
  *            {@link VictorSPX}
  */
-public class MockCTREController<T extends BaseMotorController> extends MockBase<T> {
+public abstract class MockCTREController<T extends BaseMotorController> extends MockBase<T> {
 
     Class<T> controllerClass;
 
@@ -82,17 +82,6 @@ public class MockCTREController<T extends BaseMotorController> extends MockBase<
      */
     public double kF = 0;
 
-    /**
-     * Create a wrapper for a mock CTRE controller.
-     * 
-     * @param mcClass Either {@link TalonSRX} or {@link VictorSPX}
-     *                <code>.class</code>, corresponding with the controller type
-     */
-    public MockCTREController(Class<T> mcClass) {
-        controllerClass = mcClass;
-        initMock();
-    }
-    
     @Override
     protected void mapWrapper() {
         // Update when control set
@@ -179,11 +168,6 @@ public class MockCTREController<T extends BaseMotorController> extends MockBase<
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kF(anyInt(), anyDouble(), anyInt());
-    }
-
-    @Override
-    public Class<T> getType(){
-        return controllerClass;
     }
 
     /**
