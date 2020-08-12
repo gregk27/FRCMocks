@@ -1,0 +1,215 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ca.gregk",
+    "module": "frcmocks",
+    "version": "0.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5.1",
+      "buildId": "2k2a7ncz6vgx7nxr5rlb6nfqt4"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "frcmocks-0.3.jar",
+          "url": "frcmocks-0.3.jar",
+          "size": 8143973,
+          "sha512": "e65317a52bd555bc9e02ac89c051ea7b49e053f2d9fe422b7f44ec1a543032c9c6aae97db37baa86fad945d39d414d59bb83c1ff67316b91422f5d226a2112d1",
+          "sha256": "281f6269117a975a888118e8060c629c0a61ebe86c1396a503f2f59d160b429b",
+          "sha1": "384bce6a27bd3313681590836b8f386fe4ed8e06",
+          "md5": "741f8db7b7b275cc381a6a3adf86e608"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.mockito",
+          "module": "mockito-core",
+          "version": {
+            "requires": "2.28.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpilibj",
+          "module": "wpilibj-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.ntcore",
+          "module": "ntcore-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpiutil",
+          "module": "wpiutil-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.thirdparty.frc2020.opencv",
+          "module": "opencv-java",
+          "version": {
+            "requires": "3.4.7-2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cscore",
+          "module": "cscore-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cameraserver",
+          "module": "cameraserver-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "edu.wpi.first.hal",
+          "module": "hal-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "org.ejml",
+          "module": "ejml-simple",
+          "version": {
+            "requires": "0.38"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-annotations",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-core",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.10.0"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpilibNewCommands",
+          "module": "wpilibNewCommands-java",
+          "version": {
+            "requires": "2020.3.2"
+          }
+        },
+        {
+          "group": "com.ctre.phoenix",
+          "module": "api-java",
+          "version": {
+            "requires": "5.17.6"
+          }
+        },
+        {
+          "group": "com.ctre.phoenix",
+          "module": "wpiapi-java",
+          "version": {
+            "requires": "5.17.6"
+          }
+        },
+        {
+          "group": "com.revrobotics.frc",
+          "module": "SparkMax-java",
+          "version": {
+            "requires": "1.5.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "frcmocks-0.3.jar",
+          "url": "frcmocks-0.3.jar",
+          "size": 8143973,
+          "sha512": "e65317a52bd555bc9e02ac89c051ea7b49e053f2d9fe422b7f44ec1a543032c9c6aae97db37baa86fad945d39d414d59bb83c1ff67316b91422f5d226a2112d1",
+          "sha256": "281f6269117a975a888118e8060c629c0a61ebe86c1396a503f2f59d160b429b",
+          "sha1": "384bce6a27bd3313681590836b8f386fe4ed8e06",
+          "md5": "741f8db7b7b275cc381a6a3adf86e608"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "frcmocks-0.3-javadoc.jar",
+          "url": "frcmocks-0.3-javadoc.jar",
+          "size": 455185,
+          "sha512": "3a6622d49960a4b803ace026274a5db85fbd1c04d57bcb8776bfd204d18b8051d3811afaff2d1b1a5243406d43c5586088771b47527dae49bd89cf7a33c7e47b",
+          "sha256": "87d9943b26f70ed6cafabfe8eb56cfbdf45615551c72bd7a57599f72e0f38d8a",
+          "sha1": "17ffa530bde89fef9e06ee4e3ce3e14d4a29219e",
+          "md5": "7b4a1f6ff33f10fab44b1178a7a7f651"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "frcmocks-0.3-sources.jar",
+          "url": "frcmocks-0.3-sources.jar",
+          "size": 11606,
+          "sha512": "10fa401552d865e36192d0103841776525d7445aaddee045eec7158cfde5b99d0917e7c28e260cc56252f10b8d49840d41525d213737ed90f7c33dcc3d997b5b",
+          "sha256": "40a9734b7a6b5ef25b83da964c7f279b30dde717933f7096c9faa8849b26212a",
+          "sha1": "7e5ea4ca82e8caa9b38e731f451d75c28fa40145",
+          "md5": "5f5dd84ddf6942ee4a107bf6e98d298d"
+        }
+      ]
+    }
+  ]
+}
