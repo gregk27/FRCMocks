@@ -52,8 +52,6 @@ public class MockCANEncoder extends MockBase<CANEncoder> {
     
     /**
      * Create a wrapper for a mock {@link CANEncoder}.
-     * 
-     * @param spark The parent {@link MockCANSparkMax} controller
      */
     public MockCANEncoder() {
         super();
