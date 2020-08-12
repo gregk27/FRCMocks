@@ -15,7 +15,6 @@ import ca.gregk.frcmocks.MockBase;
  */
 public class MockCANSparkMax extends MockBase<CANSparkMax>{
 
-    private CANSparkMax mock;
     public MockCANEncoder encoder;
     public MockCANPIDController pidController;
 
@@ -42,8 +41,6 @@ public class MockCANSparkMax extends MockBase<CANSparkMax>{
      */
     public MockCANSparkMax(){
         super();
-        encoder = new MockCANEncoder(this);
-        pidController = new MockCANPIDController(this);
     }
 
     /**
@@ -56,7 +53,9 @@ public class MockCANSparkMax extends MockBase<CANSparkMax>{
     }
 
     @Override
-    protected void mapWrapper() {        
+    protected void mapWrapper() {  
+        encoder = new MockCANEncoder();
+        pidController = new MockCANPIDController(this);  
         //Pass the components on request
         when(mock.getEncoder()).thenReturn(encoder.getMock());
         when(mock.getPIDController()).thenReturn(pidController.getMock());

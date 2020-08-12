@@ -42,12 +42,12 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
      * The controller velocity, either set with {@link ControlMode#Velocity} or
      * specified manually.
      */
-    public double velocity;
+    public int velocity;
     /**
      * The controller position, either set with {@link ControlMode#Position} or
      * specified manually.
      */
-    public double position;
+    public int position;
 
     /**
      * P constant, either set with {@link BaseMotorController#config_kP(int, double, int)}
@@ -90,9 +90,9 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
             controlMode = (ControlMode) args[0];
             setpoint = (double) args[1];
             if (controlMode == ControlMode.Position) {
-                position = setpoint;
+                position = (int) setpoint;
             } else if (controlMode == ControlMode.Velocity) {
-                velocity = setpoint;
+                velocity = (int) setpoint;
             }
             return null; // void method in a block-style lambda, so return null
         }).when(mock).set(any(ControlMode.class), anyDouble());
@@ -116,13 +116,11 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
         // Update when kP set
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kP = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kP(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kP = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kP(anyInt(), anyDouble(), anyInt());
@@ -130,13 +128,11 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
         // Update when kI set
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kI(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kI = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kI(anyInt(), anyDouble(), anyInt());
@@ -144,13 +140,11 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
         // Update when kD set
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kD(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kD = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kD(anyInt(), anyDouble(), anyInt());
@@ -158,13 +152,11 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
         // Update when kF set
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kF(anyInt(), anyDouble());
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
-            controlMode = (ControlMode) args[0];
             kF = (double) args[1];
             return null; // void method in a block-style lambda, so return null
         }).when(mock).config_kF(anyInt(), anyDouble(), anyInt());
@@ -212,7 +204,7 @@ public abstract class MockCTREController<T extends BaseMotorController> extends 
      * @return Success flag, <code>false</code> if the array is not length 3
      */
     public boolean setPID(double[] pid) {
-        if(pid.length != F_INDEX+1){
+        if(pid.length != D_INDEX+1){
             return false;
         }
         kP = pid[P_INDEX];

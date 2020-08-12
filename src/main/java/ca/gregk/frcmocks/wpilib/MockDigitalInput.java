@@ -1,6 +1,6 @@
 package ca.gregk.frcmocks.wpilib;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doAnswer;
 
 import ca.gregk.frcmocks.MockBase;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -26,7 +26,9 @@ public class MockDigitalInput extends MockBase<DigitalInput>{
     
     @Override
     protected void mapWrapper() {
-        when(mock.get()).thenReturn(this.state);
+        doAnswer(invocation -> {
+			return this.state;
+		}).when(mock).get();
     }
 
     @Override
