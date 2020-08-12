@@ -16,8 +16,6 @@ import ca.gregk.frcmocks.MockBase;
  */
 public class MockCANEncoder extends MockBase<CANEncoder> {
 
-    MockCANSparkMax spark;
-
     /**
      * The encoder velocity.
      * <p>
@@ -57,9 +55,8 @@ public class MockCANEncoder extends MockBase<CANEncoder> {
      * 
      * @param spark The parent {@link MockCANSparkMax} controller
      */
-    public MockCANEncoder(MockCANSparkMax spark) {
+    public MockCANEncoder() {
         super();
-        this.spark = spark;
     }
 
     @Override

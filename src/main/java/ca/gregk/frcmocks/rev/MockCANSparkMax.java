@@ -54,7 +54,7 @@ public class MockCANSparkMax extends MockBase<CANSparkMax>{
 
     @Override
     protected void mapWrapper() {  
-        encoder = new MockCANEncoder(this);
+        encoder = new MockCANEncoder();
         pidController = new MockCANPIDController(this);  
         //Pass the components on request
         when(mock.getEncoder()).thenReturn(encoder.getMock());
