@@ -3,9 +3,6 @@ This is a library containing classes that can be used to mock behaviour of vario
 
 Additionally, classes are included that allow for manually pumping the scheduler when testing. These are derived from https://github.com/robototes/2020_Template.
 
-# Usage
-To use the submodule with your project, run the command `git submodule add https://github.com/gregk27/FRCMocks.git src/test/java/ler/mocks` from the project root.
-
 # Mocked Hardware
 Full descriptions of the mocked hardware can be found in the wiki. The shortlist is as follows
  - WPILib
@@ -20,3 +17,20 @@ Full descriptions of the mocked hardware can be found in the wiki. The shortlist
    - CANSparkMax
    - CANEncoder
    - CANPIDController
+
+# Usage
+The library can be used by adding it to your `build.gradle` file.
+
+### Step 1
+Add the following lines to the `repositories` block
+```groovy
+maven {
+    url "http://gregk.ca/FRCMocks/"
+}
+```
+
+### Step 2
+Add the following line to the `dependencies` block
+```groovy
+implementation 'ca.gregk:frcmocks:+'
+```
