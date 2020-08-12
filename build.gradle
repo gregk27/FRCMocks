@@ -68,6 +68,12 @@ publishing {
     }
 }
 
+test {
+	testLogging {
+		events "failed"
+		exceptionFormat "full"
+	}
+}
 
 java {
     withJavadocJar()

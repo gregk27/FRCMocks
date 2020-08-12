@@ -31,3 +31,9 @@ jobs:
     
     - name: Run unit tests
       run: gradle build test
+      
+    - name: Upload report
+      uses: actions/upload-artifact@v1
+      with:
+        name: Test Report - ${{ github.sha }}
+        path: build/reports/tests/test/
