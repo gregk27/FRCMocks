@@ -9,15 +9,14 @@ import com.revrobotics.CANError;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.ControlType;
 
-import org.mockito.Mockito;
+import ca.gregk.frcmocks.MockBase;
 
 /**
  * Wrapper used to mock {@link CANPIDController}s and track changes
- * <p> Used by {@link MockCANSparkMax}.
+ * <p> Used by (and requires) {@link MockCANSparkMax}.
  */
-public class MockCANPIDController {
+public class MockCANPIDController extends MockBase<CANPIDController> {
 
-    private CANPIDController mock;
     /** Parent {@link MockCANSparkMax} controller. */
     MockCANSparkMax spark;
 
@@ -48,9 +47,12 @@ public class MockCANPIDController {
      * @param spark The parent {@link MockCANSparkMax} controller
      */
     public MockCANPIDController(MockCANSparkMax spark) {
+        super();
         this.spark = spark;
-        mock = Mockito.mock(CANPIDController.class);
+    }
 
+    @Override
+    protected void mapWrapper() {        
         // Update P constant
         doAnswer(invocation -> {
             kP = (double) invocation.getArguments()[0];
@@ -106,12 +108,8 @@ public class MockCANPIDController {
         }).when(mock).setReference(anyDouble(), any(ControlType.class));
     }
 
-    /**
-     * Get the mocked {@link CANPIDController} to be passed to the subsystem.
-     * 
-     * @return The mock object
-     */
-    public CANPIDController getMock(){
-        return mock;
+    @Override
+    public Class<CANPIDController> getType() {
+        return CANPIDController.class;
     }
 }
