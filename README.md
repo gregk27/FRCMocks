@@ -34,3 +34,6 @@ Add the following line to the `dependencies` block
 ```groovy
 implementation 'ca.gregk:frcmocks:+'
 ```
+
+### Step 3
+Run `gradle install` to install the library
